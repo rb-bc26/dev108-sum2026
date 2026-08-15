@@ -25,18 +25,27 @@ Yarrow,110,15,10,0,0
 Each test case below was run against this roster from a clean copy of the CSV.
 
 | # | Feature | Input | Expected Result | Actual Result | Pass/Fail |
+
 | 1 | Create a New Character | Menu `1`, name `Reecha Bharali` | New character appended to the list and to `characters.csv` with random Power (50-150), Strength (10-30), Defense (5-20), Wins/Losses = 0 | `Reecha Bharali` created with Power 143, Strength 22, Defense 19, Wins 0, Losses 0; row appended to CSV | Pass |
+
 | 2 | List All Characters | Menu `2` | All 6 characters printed in a tab-aligned table | All 6 rows displayed correctly with header and stats | Pass |
+
 | 3 | Search - character found | Menu `3`, name `Snake Plant` | Full stat block printed for Snake Plant | Displayed Name, Power 100, Strength 20, Defense 10, Wins 0, Losses 0 | Pass |
+
 | 4 | Search - character not found | Menu `3`, name `Ghost Plant` | "Character not found." printed | "Character not found." printed as expected | Pass |
+
 | 5 | Delete - cancel | Menu `4`, name `Reecha Bharali`, confirm `n` | Character kept; "Deletion canceled." printed; CSV unchanged | Character kept, correct message printed, CSV unchanged | Pass |
+
 | 6 | Delete - confirm | Menu `4`, name `Reecha Bharali`, confirm `y` | Character removed from list and CSV | "Reecha Bharali has been deleted." printed; row removed from CSV | Pass |
+
 | 7 | Delete - character not found | Menu `4`, name `Ghost Plant` | "Character not found." printed | "Character not found." printed as expected | Pass |
+
 | 8 | Battle - two named fighters | Menu `5`, `Snake Plant`, `ZZ Plant` | Each fighter deals one hit; higher remaining Power wins; winner's Wins +1, loser's Losses +1; result saved to CSV | ZZ Plant won 113 to 94; ZZ Plant Wins → 1, Snake Plant Losses → 1; CSV updated | Pass |
+
 | 9 | Invalid menu choice | Menu `9` | "Invalid input. Please enter a number from 1 to 6." printed, menu redisplayed | Correct message printed, program did not crash | Pass |
+
 | 10 | Exit | Menu `6` | "Thanks for playing! Goodbye." printed, program ends | Program exited cleanly | Pass |
 
-**Bug found and fixed during testing:** `battle()` referenced `power1` without ever initializing it, causing a `NameError` crash on every battle. Fixed by adding `power1 = fighter1[1]` alongside the existing `power2 = fighter2[1]` line. Test case 8 above confirms the fix works.
 
 ## AI Usage Disclosure
-Minimal usage. Used Claude to assist with fixing indentation errors by using debugging code logic in the Python programming.Used AI to format test cases from word file to .md file due to formatting issues.
+Used Claude to assist with fixing indentation errors by using debugging code logic in the Python programming.  Used AI to format test cases from word file to .md file due to formatting issues.
