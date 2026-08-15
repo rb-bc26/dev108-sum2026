@@ -60,8 +60,8 @@ if ans.lower()=="y":
             od_3=input("Please enter your email address: ")
             od_4=input("Please enter your phone number: ")
             od_5=int(input("Please enter the quantity:"))
-            total_price=(od_5*29.99)
-            tax=(.10 * total_price)
+            total_price = (od_5*29.99)
+            tax=float(.10 * total_price,2)
             total_price_tax= (total_price + tax)
             print("Thank you for your order. Your total is: $",  total_price_tax) 
             print("\n =================" \
